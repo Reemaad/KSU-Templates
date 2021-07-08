@@ -70,7 +70,7 @@ namespace KSU_Templates.Admin
 
             while (dr.Read())
             {
-                document = application.Documents.Add(Template: @"C:\projects\noticeForm.dotx");
+                document = application.Documents.Add(Template: @"C:\Users\Reema\source\repos\noticeForm.dotx");
 
                 //application.Visible = true;
                 foreach (Microsoft.Office.Interop.Word.Field field in document.Fields)
@@ -188,12 +188,12 @@ namespace KSU_Templates.Admin
                     }
 
                 }
-                document.SaveAs2(FileName: @"C:\projects\Effective_Date_Notice.dox");
+                document.SaveAs2(FileName: @"C:\Users\Reema\source\repos\Effective_Date_Notice.dox");
 
                 document.Close();
 
                 successful = sendEmailViaGmail((String)dr["traineeEmail"]);
-                File.Delete(@"C:\projects\Effective_Date_Notice.dox");
+                File.Delete(@"C:\Users\Reema\source\repos\Effective_Date_Notice.dox");
 
 
 
@@ -234,7 +234,7 @@ namespace KSU_Templates.Admin
             while (usernames_dr.Read())
             {
                 dr = recharge_dr();
-                document = application.Documents.Add(Template: @"C:\projects\follow-up.dotx");//B
+                document = application.Documents.Add(Template: @"C:\Users\Reema\source\repos\follow-up.dotx");//B
                 while (dr.Read())
                 {
                     //document = application.Documents.Add(Template: @"C:\projects\follow-up.dotx"); A
@@ -378,7 +378,7 @@ namespace KSU_Templates.Admin
                         }
                     }
                 }
-                document.SaveAs2(FileName: @"C:\projects\follow-up.dox");
+                document.SaveAs2(FileName: @"C:\Users\Reema\source\repos\follow-up.dox");
                 document.Close();
                 successful = sendEmailViaGmail(traineeEmail);
                 File.Delete(@"C:\projects\follow-up.dox");
@@ -407,7 +407,7 @@ namespace KSU_Templates.Admin
             while (usernames_dr.Read())
             {
                 dr = recharge_dr();
-                document = application.Documents.Add(Template: @"C:\projects\attendance.dotx");
+                document = application.Documents.Add(Template: @"C:\Users\Reema\source\repos\attendance.dotx");
                 while (dr.Read())
                 {
                     if (dr["userName"].ToString() == usernames_dr["userName"].ToString())
@@ -595,10 +595,10 @@ namespace KSU_Templates.Admin
                         }
                     }
                 }
-                document.SaveAs2(FileName: @"C:\projects\attendance.dox");
+                document.SaveAs2(FileName: @"C:\Users\Reema\source\repos\attendance.dox");
                 document.Close();
                 successful = sendEmailViaGmail(traineeEmail);
-                File.Delete(@"C:\projects\follow-up.dox");
+                File.Delete(@"C:\Users\Reema\source\repos\follow-up.dox");
             }
 
             if (successful.Equals("Email Send successfully"))
@@ -691,17 +691,17 @@ namespace KSU_Templates.Admin
                     switch (template)
                     {
                         case "Effective Date Notice":
-                            attachment = new System.Net.Mail.Attachment(@"C:\projects\Effective_Date_Notice.dox");
+                            attachment = new System.Net.Mail.Attachment(@"C:\Users\Reema\source\repos\Effective_Date_Notice.dox");
                             break;
                         case "Trainee Attendance":
-                            attachment = new System.Net.Mail.Attachment(@"C:\projects\attendance.dox");
+                            attachment = new System.Net.Mail.Attachment(@"C:\Users\Reema\source\repos\attendance.dox");
                             break;
                         case "Follow Up form":
-                            attachment = new System.Net.Mail.Attachment(@"C:\projects\follow-up.dox");
+                            attachment = new System.Net.Mail.Attachment(@"C:\Users\Reema\source\repos\follow-up.dox");
                             break;
 
                         default:
-                            attachment = new System.Net.Mail.Attachment(@"C:\projects\Effective_Date_Notice.dox");
+                            attachment = new System.Net.Mail.Attachment(@"C:\Users\Reema\source\repos\Effective_Date_Notice.dox");
                             break;
 
                     }
