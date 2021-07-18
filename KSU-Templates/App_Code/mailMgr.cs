@@ -42,7 +42,7 @@ public class mailMgr : MailMessage
         myPortNumber = 587;
         myEnableSSL = false;
         myUserName = "ksu.templates@gmail.com";
-        myPassword = "KFMC123456";
+        myPassword = "xxxxxx"; // password
     }
  
     public  string sendEmailViaGmail() 
